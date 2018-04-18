@@ -9,13 +9,16 @@ import android.view.ViewGroup;
 
 import java.security.acl.Group;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by Administrator on 2018/4/17.
  */
 
 public abstract class Fragment extends android.support.v4.app.Fragment {
     protected View mRoot;
-
+    protected Unbinder mRootUnBinder;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -52,6 +55,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     protected abstract int getContentLayoutId();
     protected void initWidget(View root){
 
+        mRootUnBinder=ButterKnife.bind(this,root);
     }
     /**
      * 初始化数据

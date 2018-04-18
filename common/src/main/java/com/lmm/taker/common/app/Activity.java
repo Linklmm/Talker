@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Administrator on 2018/4/17.
  */
@@ -18,7 +20,9 @@ public abstract class Activity extends AppCompatActivity {
         //初始化界面之前初始化窗口
         initWindows();
         if(initArgs(getIntent().getExtras())) {
-            getContentLayoutId();
+            int layId=getContentLayoutId();
+            //得到界面id并设置到Activity界面中
+            setContentView(layId);
             initWidget();
             initData();
         }else {
@@ -47,6 +51,7 @@ public abstract class Activity extends AppCompatActivity {
      * */
     protected void initWidget(){
 
+        ButterKnife.bind(this);
 
     }
     /**
