@@ -25,6 +25,16 @@ allprojects {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://www.jitpack.io" }
+        //个推私有Maven URL地址
+        maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -38,4 +48,8 @@ ext{
     geniusVersion = '2.0.0'
     glideVersion = '3.7.0'
     circleimageviewVersion = '2.1.0'
+    gsonVersion = '2.8.0'
+    retrofitVersion = '2.1.0'
+    getuiVersion = '2.9.3.0'
+    dbflowVersion = "4.0.0-beta7"
 }
