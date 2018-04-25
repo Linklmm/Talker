@@ -23,7 +23,10 @@ public class SquareLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public SquareLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // 给父类传递的测量值都为宽度，
+        // 那么就是基于宽度的正方形控件了
+        super.onMeasure(widthMeasureSpec, widthMeasureSpec);
     }
 }
